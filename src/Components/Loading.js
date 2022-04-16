@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Loading = () => {
-  return (
-    <div className='h-12 w-12 border-white border-t-black border-8 rounded-full m-auto animate-spin mt-8'>
-      
-    </div>
-  )
-}
+const Loading = ({margin = "mt-8"}) => {
+    return (
+        <div 
+          className={`h-12 w-12 border-white border-t-black border-8 rounded-full mx-auto animate-spin ${margin}`}>
 
-export default Loading
+        </div>
+    );
+};
+
+export default Loading;
