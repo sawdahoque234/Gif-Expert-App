@@ -1,9 +1,9 @@
 import React from "react";
 
-const Loading = ({margin = "mt-8"}) => {
+const Loading = ({margin = "mt-8", height = "h-12", border = "border-8"}) => {
     return (
         <div 
-          className={`h-12 w-12 border-white border-t-black border-8 rounded-full mx-auto animate-spin ${margin}`}>
+          className={` ${margin} ${height} ${border} aspect-square border-white border-t-black  rounded-full mx-auto animate-spin`}>
 
         </div>
     );

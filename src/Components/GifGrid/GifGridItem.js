@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import GifGridButton from "./GifGridButton";
+import PropTypes from 'prop-types';
+import GifGridButtonWrapper from "./Buttons/GifGridButtonWrapper";
 
 
-const GifGridItem = ({ title, url }) => {
+const GifGridItem = ({ title, url}) => {
 
     const [downloadLink, setDownloadLink] = useState("loading"); //init state is loading the download link
 
+    //useEffect is getting the downloadable link for the image
     useEffect(() => {
         
         fetch(url)
@@ -15,7 +17,6 @@ const GifGridItem = ({ title, url }) => {
         });
         
     }, [url]);
-
 
     return (
         <div className="card animate__animated animate__fadeIn bg-sky-600 hover:bg-sky-400 rounded-md m-4 p-1 self-center transition-all duration-500">
@@ -27,9 +28,14 @@ const GifGridItem = ({ title, url }) => {
             <p className="w-auto sm:w-96 uppercase text-xs sm:text-lg text-center text-sky-300 bg-stone-900">
                 {title?.slice(0, -3)}
             </p>
-            <GifGridButton title={title} downloadLink={downloadLink} url={url}/>
+            <GifGridButtonWrapper title={title} downloadLink={downloadLink} url={url}/>
         </div>
     );
 };
+
+GifGridItem.prototype = {
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+}
 
 export default GifGridItem;

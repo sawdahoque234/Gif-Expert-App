@@ -1,6 +1,6 @@
 import React from "react";
 import { BiCopyAlt } from "react-icons/bi";
-import Tooltip from "./Tooltip";
+import Tooltip from "../Tooltip";
 
 const GifGridButtonCopy = ({url}) => {
     return (
